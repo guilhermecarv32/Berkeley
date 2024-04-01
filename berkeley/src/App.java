@@ -1,8 +1,8 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Sistema sistemaA = new Sistema("Sistema A", 64800000); // Tempo inicial: 15 horas (em milissegundos)
-        Sistema sistemaB = new Sistema("Sistema B", 64200000); // Tempo inicial: 14 minutos e 50 minutos (em milissegundos)
-        Sistema sistemaC = new Sistema("Sistema C", 66300000); // Tempo inicial: 15 horas e 25 minutos (em milissegundos)
+        Sistema sistemaA = new Sistema("Sistema A", 64800000); // Tempo inicial: 15 horas (em milissegundos) com ajuste de fuso horario (-3hrs)
+        Sistema sistemaB = new Sistema("Sistema B", 64200000); // Tempo inicial: 14 minutos e 50 minutos (em milissegundos) com ajuste de fuso horario (-3hrs)
+        Sistema sistemaC = new Sistema("Sistema C", 66300000); // Tempo inicial: 15 horas e 25 minutos (em milissegundos) com ajuste de fuso horario (-3hrs)
 
         // Criação do nó mestre
         NoMestre noMestre = new NoMestre();
