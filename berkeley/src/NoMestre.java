@@ -15,6 +15,17 @@ public class NoMestre {
     }
 
     public void sincronizarRelogios() {
+        // Exibe a hora atual de cada sistema antes do ajuste
+        System.out.println("Horas dos sistemas antes do ajuste:");
+        for (Sistema sistema : sistemas) {
+            SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
+            String horaFormatada = formatoHora.format(new Date(sistema.getHoraAtual()));
+            System.out.println(sistema.getNome() + ": " + horaFormatada);
+        }
+
+        // Separar no terminal as horas antes e depois do ajuste
+        System.out.println("-------------------");
+
         long somaTempos = 0;
 
         // Calcula a soma dos tempos de todos os sistemas
@@ -29,7 +40,7 @@ public class NoMestre {
         for (Sistema sistema : sistemas) {
             long diferenca = tempoMedio - sistema.getHoraAtual();
             sistema.setHoraAtual(sistema.getHoraAtual() + diferenca);
-            // Exibe a hora formatada
+            // Exibe a hora formatada após o ajuste
             SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
             String horaFormatada = formatoHora.format(new Date(sistema.getHoraAtual()));
             System.out.println("Relógio de " + sistema.getNome() + " ajustado para " + horaFormatada);
