@@ -1,4 +1,6 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class NoMestre {
@@ -27,7 +29,10 @@ public class NoMestre {
         for (Sistema sistema : sistemas) {
             long diferenca = tempoMedio - sistema.getHoraAtual();
             sistema.setHoraAtual(sistema.getHoraAtual() + diferenca);
-            System.out.println("Relógio de " + sistema.getNome() + " ajustado para " + sistema.getHoraAtual());
+            // Exibe a hora formatada
+            SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
+            String horaFormatada = formatoHora.format(new Date(sistema.getHoraAtual()));
+            System.out.println("Relógio de " + sistema.getNome() + " ajustado para " + horaFormatada);
         }
     }
 }
