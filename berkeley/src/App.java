@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -18,5 +19,22 @@ public class App {
 
         // sincroniza os relógios
         NoMestre.sincronizarRelogios(sistemas);
+
+        // loop infinito de atualizações
+        while(true){
+            System.out.println("----------------------------");
+            System.out.println("NOVA Atualização");
+
+            Random random = new Random();
+
+            sistemaA.setHoraAtual(sistemaA.getHoraAtual() + random.nextInt(400001) + 100000);
+            sistemaB.setHoraAtual(sistemaB.getHoraAtual() + random.nextInt(400001) + 100000);
+            sistemaC.setHoraAtual(sistemaC.getHoraAtual() - random.nextInt(400001) + 100000);
+    
+            NoMestre.sincronizarRelogios(sistemas);
+
+            //atrasar um pouco as atualizações
+            Thread.sleep(1000);
+        }
     }
 }
